@@ -11,8 +11,7 @@ export default class GridLayout extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={this.onButtonPress} style={{flex: 1}}>
-        <Card>
-          <Image source={require('../images/card.png')}/>
+        <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}}>
         </Card>
       </TouchableOpacity>
     );
