@@ -6,6 +6,12 @@ export default class GridLayout extends React.Component {
 
   onButtonPress() {
     console.log("Pressed");
+    // Use transition -- navigate to landing page
+    // return (
+    //   <View style={{flex: 1}}>
+    //     <navigator/>
+    //   </View>
+    // )
   }
 
   render() {
