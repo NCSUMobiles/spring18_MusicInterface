@@ -4,6 +4,13 @@ import { Card, ListItem, Button } from 'react-native-elements';
 import GridItem from './GridItem';
 
 export default class GridLayout extends React.Component {
+  allBoxes() {
+    return this.props.data.map((row, i) => {
+      return(
+        <GridItem key={i} data={row}/>
+      )
+    })
+  }
 
   render() {
     return (
@@ -13,8 +20,7 @@ export default class GridLayout extends React.Component {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-        <GridItem />
-        <GridItem />
+        {this.allBoxes()}
       </View>
     );
   }
