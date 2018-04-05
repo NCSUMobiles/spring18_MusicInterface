@@ -17,11 +17,17 @@ export default class App extends React.Component {constructor() {
           "row": [
             {
               "title": "square1",
-              "category": "img1"
+              "category": "img1",
+              "flexSize": 2,
+              "backgroundColor": "#bada55",
+              "borderColor": "#89a725"
             },
             {
               "title": "square2",
-              "category": "img2"
+              "category": "img2",
+              "flexSize": 1,
+              "backgroundColor": "#6699ff",
+              "borderColor": "#1a66ff"
             }
           ]
         },
@@ -29,23 +35,24 @@ export default class App extends React.Component {constructor() {
           "row": [
             {
               "title": "square3",
-              "category": "img3"
+              "category": "img3",
+              "flexSize": 1,
+              "backgroundColor": "#ff66cc",
+              "borderColor": "#ff33bb"
             },
             {
               "title": "square4",
-              "category": "img4"
-            }
-          ]
-        },
-        {
-          "row": [
-            {
-              "title": "square5",
-              "category": "img5"
+              "category": "img4",
+              "flexSize": 1,
+              "backgroundColor": "#ff9966",
+              "borderColor": "#ff7733"
             },
             {
-              "title": "square6",
-              "category": "img6"
+              "title": "square5",
+              "category": "img5",
+              "flexSize": 1,
+              "backgroundColor": "#993399",
+              "borderColor": "#732673"
             }
           ]
         }

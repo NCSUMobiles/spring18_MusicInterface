@@ -11,10 +11,19 @@ export default class GridItem extends React.Component {
   }
   render() {
     return (
-      <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={{flex: 1, flexDirection: 'column'}}>
-        <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={{flex: 1, marginTop: 10, marginBottom: 10}}>
+      <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={{flex: this.props.data.flexSize, flexDirection: 'column'}}>
+        <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.data.backgroundColor, borderColor: this.props.data.borderColor}]}>
         </Card>
       </TouchableOpacity>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  gridItem: {
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 10,
+    elevation: 5,
+  },
+});
