@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Slider } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 
 export default class SlidingComponent extends React.Component {
+  // TODO: where to store state of slider component?
   constructor(props) {
     super(props);
     this.state = {
@@ -19,14 +20,14 @@ export default class SlidingComponent extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.state.setting1} </Text>
+        <Text>{this.state.settingName} </Text>
         <Slider
-          style: {{width: 300}}
-          step: {1}
-          minimumValue: 0
-          maximumValue: 10
-          value: this.state.settingVal
-          onSlidingComplete: { val => this.onSlidingComplete(val) }
+          style= {{width: 300}}
+          step= {1}
+          minimumValue= {0}
+          maximumValue= {10}
+          value= {this.state.settingVal}
+          onSlidingComplete= { val => this.onSlidingComplete(val) }
         />
       </View>
 

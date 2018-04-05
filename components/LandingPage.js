@@ -1,21 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
-import SlidingComponent from './components/SlidingComponent';
+import SliderComponent from './SliderComponent';
 
 export default class LandingPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userID: "User 1"
-    };
-  }
-  // Do I need to maintain state for each slider component here?
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.state.userID} </Text>
+        <Text>User Name </Text>
         <SliderComponent />
         <SliderComponent />
         <SliderComponent />
