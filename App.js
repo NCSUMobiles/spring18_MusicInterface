@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
-import GridLayout from './components/GridLayout';
+import UserRow from './components/UserRow';
+import ThemeCard from './components/ThemeCard'
 
 export default class App extends React.Component {constructor() {
   super();
@@ -12,7 +13,7 @@ export default class App extends React.Component {constructor() {
 
   componentWillMount() {
     this.setState({
-      "rows": [
+      "users": [
         {
           "row": [
             {
@@ -60,10 +61,10 @@ export default class App extends React.Component {constructor() {
     })
   }
 
-  allRows() {
-    return this.state.rows.map((row, i) => {
+  allUsers() {
+    return this.state.users.map((row, i) => {
       return(
-        <GridLayout key={i} data={row.row}/>
+        <UserRow key={i} data={row.row}/>
       )
     })
   }
@@ -71,7 +72,8 @@ export default class App extends React.Component {constructor() {
   render() {
     return(
       <View style={styles.container}>
-        {this.allRows()}
+        <ThemeCard />
+        {this.allUsers()}
       </View>
     )
   }

@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight, Image } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
-import GridItem from './GridItem';
+import User from './User';
 
-export default class GridLayout extends React.Component {
+export default class UserRow extends React.Component {
   allBoxes() {
     return this.props.data.map((row, i) => {
       return(
-        <GridItem key={i} data={row}/>
+        <User key={i} data={row}/>
       )
     })
   }
