@@ -1,20 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight, Image } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
+import { Card, ListItem, Button, Slider } from 'react-native-elements';
+import Collapsible from 'react-native-collapsible';
 
 export default class User extends React.Component {
 
+  state = {
+    collapsed: true,
+  };
+
   onButtonPress() {
-    console.log(this.props.data.title);
-    console.log(this.props.data.category);
-    console.log("Pressed");
+    this.setState({collapsed: !this.state.collapsed});
   }
+
   render() {
     return (
-      <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={{flex: this.props.data.flexSize, flexDirection: 'column'}}>
-        <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.data.backgroundColor, borderColor: this.props.data.borderColor}]}>
-        </Card>
-      </TouchableOpacity>
+      <View style={{flex: this.props.data.flexSize, flexDirection: 'column'}}>
+        <TouchableOpacity onPress={this.onButtonPress.bind(this)}>
+          <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.data.backgroundColor, borderColor: this.props.data.borderColor}]}>
+          </Card>
+        </TouchableOpacity>
+        <Collapsible collapsed={this.state.collapsed} style={{backgroundColor: '#424242'}}>
+          <View style={{margin: 20}}>
+            <Text style={{color: "white"}}>HI</Text>
+            <Slider></Slider>
+          </View>
+        </Collapsible>
+      </View>
     );
   }
 }
