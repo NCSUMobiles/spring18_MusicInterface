@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import UserRow from './components/UserRow';
 import ThemeCard from './components/ThemeCard'
@@ -56,6 +56,24 @@ export default class App extends React.Component {constructor() {
               "borderColor": "#732673"
             }
           ]
+        },
+        {
+          "row": [
+            {
+              "title": "square1",
+              "category": "img1",
+              "flexSize": 1,
+              "backgroundColor": "#bada55",
+              "borderColor": "#89a725"
+            },
+            {
+              "title": "square2",
+              "category": "img2",
+              "flexSize": 2,
+              "backgroundColor": "#6699ff",
+              "borderColor": "#1a66ff"
+            }
+          ]
         }
       ]
     })
@@ -71,10 +89,10 @@ export default class App extends React.Component {constructor() {
 
   render() {
     return(
-      <View style={styles.container}>
+      <ScrollView style={{flex: 1}}>
         <ThemeCard />
         {this.allUsers()}
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -85,8 +103,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });

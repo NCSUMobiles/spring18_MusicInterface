@@ -19,6 +19,7 @@ export default class UserRow extends React.Component {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        minHeight: 200,
       }}>
         {this.allBoxes()}
       </View>
