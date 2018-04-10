@@ -1,0 +1,114 @@
+{
+	"theme": [{
+			"name": "earth",
+			"colors": [
+				"#f9ddc7",
+				"#e2cab7",
+				"#dbc3af",
+				"#d1b9a5",
+				"#c4ac99",
+				"#c4a893"
+			],
+			"blobColors": [
+				"#e88f71",
+				"#edbb7b",
+				"#d6cb82",
+				"#9fad66",
+				"#96b592",
+				"#82918b",
+				"#8d818e",
+				"#a88a97"
+			],
+			"assignedShape": null
+		},
+		{
+			"name": "water",
+			"colors": [
+        "#64b8df"
+			],
+			"blobColors": [
+
+			],
+			"assignedShape": null
+		},
+		{
+			"name": "fire",
+			"colors": [
+        "#4b3513"
+			],
+			"blobColors": [
+
+			],
+			"assignedShape": null
+		},
+		{
+			"name": "air",
+			"colors": [
+        "#64b8df"
+			],
+			"blobColors": [
+
+			],
+			"assignedShape": null
+		}
+	],
+	"blobs": [{
+			"row": [{
+					"title": "square1",
+					"category": "img1",
+					"flexSize": 2,
+					"backgroundColor": "#bada55",
+					"borderColor": "#89a725"
+				},
+				{
+					"title": "square2",
+					"category": "img2",
+					"flexSize": 1,
+					"backgroundColor": "#6699ff",
+					"borderColor": "#1a66ff"
+				}
+			]
+		},
+		{
+			"row": [{
+					"title": "square3",
+					"category": "img3",
+					"flexSize": 1,
+					"backgroundColor": "#ff66cc",
+					"borderColor": "#ff33bb"
+				},
+				{
+					"title": "square4",
+					"category": "img4",
+					"flexSize": 1,
+					"backgroundColor": "#ff9966",
+					"borderColor": "#ff7733"
+				},
+				{
+					"title": "square5",
+					"category": "img5",
+					"flexSize": 1,
+					"backgroundColor": "#993399",
+					"borderColor": "#732673"
+				}
+			]
+		},
+		{
+			"row": [{
+					"title": "square1",
+					"category": "img1",
+					"flexSize": 1,
+					"backgroundColor": "#bada55",
+					"borderColor": "#89a725"
+				},
+				{
+					"title": "square2",
+					"category": "img2",
+					"flexSize": 2,
+					"backgroundColor": "#6699ff",
+					"borderColor": "#1a66ff"
+				}
+			]
+		}
+	]
+}
