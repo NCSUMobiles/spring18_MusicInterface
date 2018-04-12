@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { Card, ListItem, Button, Slider } from 'react-native-elements';
 import Pie from 'react-native-pie'
 
@@ -11,8 +11,8 @@ export default class ThemePie extends React.Component {
     return (
       <View style={styles.gridItem}>
         <Pie
-          radius={100}
-          innerRadius={60}
+          radius={Dimensions.get('window').width/4.5}
+          innerRadius={Dimensions.get('window').width/8}
           series={[this.sliceVal, this.sliceVal, this.sliceVal, this.sliceVal, this.sliceVal, this.sliceVal]}
           colors={this.props.theme.colors} />
       </View>
