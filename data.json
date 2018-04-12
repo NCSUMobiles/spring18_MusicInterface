@@ -46,11 +46,11 @@
 		{
 			"name": "fire",
 			"colors": [
+				"#a97c50",
         "#4b3513",
 				"#726658",
 				"#c2b59b",
 				"#58596b",
-				"#a97c50",
 				"#9b8579"
 			],
 			"blobColors": [
@@ -68,8 +68,8 @@
 		{
 			"name": "air",
 			"colors": [
-        "#64b8df",
 				"#c6d3e4",
+        "#64b8df",
 				"#aab4c0",
 				"#e4dde6",
 				"#bbcaae",

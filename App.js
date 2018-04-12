@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, StatusBar } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import UserRow from './components/UserRow';
 import ThemeCard from './components/ThemeCard'
@@ -15,6 +15,10 @@ export default class App extends React.Component {
     }
     // allow children to use this function by naming in constructor
     this.updateChildTheme = this.updateChildTheme.bind(this)
+  }
+
+  componentWillMount() {
+    StatusBar.setHidden(true);
   }
 
   // very famous array sorting algorithm
