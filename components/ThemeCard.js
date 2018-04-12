@@ -23,7 +23,7 @@ export default class ThemeCard extends React.Component {
     return (
       <View>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={{flex: 1, flexDirection: 'row', minHeight: 200}}>
-          <Card image={require('../images/color.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.themes[this.state.selected].colors[0], borderColor: this.props.themes[this.state.selected].colors[0]}]}>
+          <Card image={require('../images/color.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.themes[this.props.selected].colors[0], borderColor: this.props.themes[this.props.selected].colors[0]}]}>
           </Card>
         </TouchableOpacity>
         <Collapsible collapsed={this.state.collapsed} style={{backgroundColor: '#424242'}}>
