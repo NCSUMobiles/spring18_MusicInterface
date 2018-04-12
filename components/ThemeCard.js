@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     elevation: 5,
+    paddingTop: 10,
   },
   viewStyle: {
     flex: 1,

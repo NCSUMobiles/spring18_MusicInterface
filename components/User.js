@@ -18,7 +18,7 @@ export default class User extends React.Component {
     return (
       <View style={{flex: this.props.data.flexSize, flexDirection: 'column'}}>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)}>
-          <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.backgroundColor, borderColor: this.props.backgroundColor}]}>
+          <Card image={require('../images/person2.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.backgroundColor, borderColor: this.props.backgroundColor}]}>
           </Card>
         </TouchableOpacity>
         <Collapsible collapsed={this.state.collapsed} style={{backgroundColor: '#424242'}}>
@@ -38,5 +38,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     elevation: 5,
+    paddingTop: 10,
   },
 });
