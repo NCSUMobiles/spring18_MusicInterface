@@ -7,15 +7,16 @@ import ThemePie from './ThemePie'
 export default class ThemeCard extends React.Component {
 
   state = {
-    collapsed: true,
-    selected: 0,
+    collapsed: true
   };
 
   onButtonPress() {
     console.log("Pressed");
-    console.log(this.props.themes[0])
-    this.setState({selected: this.state.selected += 1});
     this.setState({collapsed: !this.state.collapsed});
+  }
+
+  onPiePress(choice) {
+    this.props.updateTheme(choice);
   }
 
   render() {
@@ -27,12 +28,20 @@ export default class ThemeCard extends React.Component {
         </TouchableOpacity>
         <Collapsible collapsed={this.state.collapsed} style={{backgroundColor: '#424242'}}>
           <View style={styles.viewStyle}>
-            <ThemePie theme={this.props.themes[0]}/>
-            <ThemePie theme={this.props.themes[0]}/>
+            <TouchableOpacity onPress={this.onPiePress.bind(this, 0)}>
+              <ThemePie theme={this.props.themes[0]}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.onPiePress.bind(this, 1)}>
+              <ThemePie theme={this.props.themes[1]}/>
+            </TouchableOpacity>
           </View>
           <View style={styles.viewStyle}>
-            <ThemePie theme={this.props.themes[0]}/>
-            <ThemePie theme={this.props.themes[0]}/>
+            <TouchableOpacity onPress={this.onPiePress.bind(this, 2)}>
+              <ThemePie theme={this.props.themes[2]}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.onPiePress.bind(this, 3)}>
+              <ThemePie theme={this.props.themes[3]}/>
+            </TouchableOpacity>
           </View>
         </Collapsible>
       </View>
