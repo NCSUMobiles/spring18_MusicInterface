@@ -24,30 +24,66 @@
 		{
 			"name": "water",
 			"colors": [
-        "#64b8df"
+        "#64b8df",
+				"#90a4c2",
+				"#9bc3cb",
+				"#b4cde3",
+				"#009cbb",
+				"#00a79d"
 			],
 			"blobColors": [
-
+				"#fed9b5",
+				"#c3c0ac",
+				"#f4b7a4",
+				"#b2cbad",
+				"#c9c0cc",
+				"#e3d1d3",
+				"#cde3eb",
+				"#e5eebf"
 			],
 			"assignedShape": null
 		},
 		{
 			"name": "fire",
 			"colors": [
-        "#4b3513"
+        "#4b3513",
+				"#726658",
+				"#c2b59b",
+				"#58596b",
+				"#a97c50",
+				"#9b8579"
 			],
 			"blobColors": [
-
+				"#861619",
+				"#ff9120",
+				"#fec70b",
+				"#e88c4f",
+				"#ffc63f",
+				"#e06226",
+				"#a61e22",
+				"#f05234"
 			],
 			"assignedShape": null
 		},
 		{
 			"name": "air",
 			"colors": [
-        "#64b8df"
+        "#64b8df",
+				"#c6d3e4",
+				"#aab4c0",
+				"#e4dde6",
+				"#bbcaae",
+				"#b7d1cd"
 			],
 			"blobColors": [
-
+				"#f5de6a",
+				"#b7c045",
+				"#fbb278",
+				"#afa1ac",
+				"#7c9c6e",
+				"#93ba63",
+				"#f4ae98",
+				"#d0df61"
 			],
 			"assignedShape": null
 		}
@@ -56,16 +92,12 @@
 			"row": [{
 					"title": "square1",
 					"category": "img1",
-					"flexSize": 2,
-					"backgroundColor": "#bada55",
-					"borderColor": "#89a725"
+					"flexSize": 2
 				},
 				{
 					"title": "square2",
 					"category": "img2",
-					"flexSize": 1,
-					"backgroundColor": "#6699ff",
-					"borderColor": "#1a66ff"
+					"flexSize": 1
 				}
 			]
 		},
@@ -73,23 +105,17 @@
 			"row": [{
 					"title": "square3",
 					"category": "img3",
-					"flexSize": 1,
-					"backgroundColor": "#ff66cc",
-					"borderColor": "#ff33bb"
+					"flexSize": 1
 				},
 				{
 					"title": "square4",
 					"category": "img4",
-					"flexSize": 1,
-					"backgroundColor": "#ff9966",
-					"borderColor": "#ff7733"
+					"flexSize": 1
 				},
 				{
 					"title": "square5",
 					"category": "img5",
-					"flexSize": 1,
-					"backgroundColor": "#993399",
-					"borderColor": "#732673"
+					"flexSize": 1
 				}
 			]
 		},
@@ -97,16 +123,17 @@
 			"row": [{
 					"title": "square1",
 					"category": "img1",
-					"flexSize": 1,
-					"backgroundColor": "#bada55",
-					"borderColor": "#89a725"
+					"flexSize": 1
 				},
 				{
 					"title": "square2",
 					"category": "img2",
-					"flexSize": 2,
-					"backgroundColor": "#6699ff",
-					"borderColor": "#1a66ff"
+					"flexSize": 2
+				},
+				{
+					"title": "square2",
+					"category": "img2",
+					"flexSize": 2
 				}
 			]
 		}

@@ -14,10 +14,11 @@ export default class User extends React.Component {
   }
 
   render() {
+    console.log(this.props.background)
     return (
       <View style={{flex: this.props.data.flexSize, flexDirection: 'column'}}>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)}>
-          <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.data.backgroundColor, borderColor: this.props.data.borderColor}]}>
+          <Card image={require('../images/card.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.backgroundColor, borderColor: this.props.backgroundColor}]}>
           </Card>
         </TouchableOpacity>
         <Collapsible collapsed={this.state.collapsed} style={{backgroundColor: '#424242'}}>
