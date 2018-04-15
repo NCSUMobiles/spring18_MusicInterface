@@ -11,20 +11,33 @@ export default class User extends React.Component {
 
   onButtonPress() {
     this.setState({collapsed: !this.state.collapsed});
+    console.log(this.props);
+  }
+
+  allColors() {
+    return this.props.blobColors.map((blobColor, i) => {
+      if (this.props.backgroundColor === blobColor)
+        return(
+          <TouchableOpacity style={{flex: 1, backgroundColor: blobColor, minHeight: 40, margin: 0, padding: 0, borderColor: '#fff', borderWidth: 2}} key={i}></TouchableOpacity>
+        )
+      else
+        return(
+          <TouchableOpacity style={{flex: 1, backgroundColor: blobColor, minHeight: 40, margin: 0, padding: 0}} key={i}></TouchableOpacity>
+        )
+    })
   }
 
   render() {
     console.log(this.props.background)
     return (
-      <View style={{flex: this.props.data.flexSize, flexDirection: 'column'}}>
+      <View style={{flex: this.props.data.flexSize, flexDirection: 'column' }}>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)}>
           <Card image={require('../images/person2.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.backgroundColor, borderColor: this.props.backgroundColor}]}>
           </Card>
         </TouchableOpacity>
         <Collapsible collapsed={this.state.collapsed} style={{backgroundColor: '#424242'}}>
-          <View style={{margin: 20}}>
-            <Text style={{color: "white"}}>HI</Text>
-            <Slider></Slider>
+          <View style={{marginTop: 20, marginBottom: 20, flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+            {this.allColors()}
           </View>
         </Collapsible>
       </View>

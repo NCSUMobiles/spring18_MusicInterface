@@ -63,7 +63,8 @@ export default class App extends React.Component {
         <UserRow
           key={i}
           data={row.row}
-          colors={colors} />
+          colors={colors}
+          blobColors={this.state.theme[this.state.selected].blobColors} />
       )
     })
   }

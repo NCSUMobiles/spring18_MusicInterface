@@ -11,7 +11,8 @@ export default class UserRow extends React.Component {
         <User
           key={i}
           data={row}
-          backgroundColor={this.props.colors[i]}/>
+          backgroundColor={this.props.colors[i]}
+          blobColors={this.props.blobColors}/>
       )
     })
   }
@@ -23,7 +24,7 @@ export default class UserRow extends React.Component {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         minHeight: 200,
       }}>
         {this.allBoxes()}
