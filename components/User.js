@@ -14,6 +14,10 @@ export default class User extends React.Component {
     console.log(this.props);
   }
 
+  onChangeColor(index) {
+    this.props.updateBlobColor(this.props.data.id, index);
+  }
+
   allColors() {
     return this.props.blobColors.map((blobColor, i) => {
       if (this.props.backgroundColor === blobColor)
@@ -22,7 +26,7 @@ export default class User extends React.Component {
         )
       else
         return(
-          <TouchableOpacity style={{flex: 1, backgroundColor: blobColor, minHeight: 40, margin: 0, padding: 0}} key={i}></TouchableOpacity>
+          <TouchableOpacity onPress={this.onChangeColor.bind(this, i)} style={{flex: 1, backgroundColor: blobColor, minHeight: 40, margin: 0, padding: 0}} key={i}></TouchableOpacity>
         )
     })
   }

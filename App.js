@@ -11,10 +11,13 @@ export default class App extends React.Component {
     this.state = {
       selected: 0,
       users: data.blobs,
-      theme: data.theme
+      theme: data.theme,
+      preferredIndex: -1,
+      preferredColor: -1
     }
     // allow children to use this function by naming in constructor
-    this.updateChildTheme = this.updateChildTheme.bind(this)
+    this.updateChildTheme = this.updateChildTheme.bind(this);
+    this.updateBlobColor = this.updateBlobColor.bind(this);
   }
 
   componentWillMount() {
@@ -42,9 +45,20 @@ export default class App extends React.Component {
     this.setState({selected: choice});
   }
 
+  updateBlobColor(index, color) {
+    this.setState({preferredIndex: index, preferredColor: color});
+  }
+
   allUsers() {
     // shuffle an array to help with assigning random colors in beginning
-    arr = this.fisher_yates_shuffle([0,1,2,3,4,5,6,7])
+    arr = this.fisher_yates_shuffle([0,1,2,3,4,5,6,7]);
+
+    if (this.state.preferredIndex != -1) {
+      var otherIndex = arr.indexOf(this.state.preferredColor);
+      arr[otherIndex] = arr[this.state.preferredIndex];
+      arr[this.state.preferredIndex] = this.state.preferredColor;
+    }
+
     //How far youve gotten in array, used for assigning random colors
     arrIndex = 0;
     return this.state.users.map((row, i) => {
@@ -64,7 +78,8 @@ export default class App extends React.Component {
           key={i}
           data={row.row}
           colors={colors}
-          blobColors={this.state.theme[this.state.selected].blobColors} />
+          blobColors={this.state.theme[this.state.selected].blobColors}
+          updateBlobColor={this.updateBlobColor} />
       )
     })
   }
