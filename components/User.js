@@ -11,7 +11,11 @@ export default class User extends React.Component {
 
   onButtonPress() {
     this.setState({collapsed: !this.state.collapsed});
-    console.log(this.props);
+    //console.log(this.props);
+  }
+
+  onChangeColor(index) {
+    this.props.updateBlobColor(this.props.data.id, index);
   }
 
   allColors() {
@@ -22,13 +26,13 @@ export default class User extends React.Component {
         )
       else
         return(
-          <TouchableOpacity style={{flex: 1, backgroundColor: blobColor, minHeight: 40, margin: 0, padding: 0}} key={i}></TouchableOpacity>
+          <TouchableOpacity onPress={this.onChangeColor.bind(this, i)} style={{flex: 1, backgroundColor: blobColor, minHeight: 40, margin: 0, padding: 0}} key={i}></TouchableOpacity>
         )
     })
   }
 
   render() {
-    console.log(this.props.background)
+    //console.log(this.props.background)
     return (
       <View style={{flex: this.props.data.flexSize, flexDirection: 'column' }}>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)}>
