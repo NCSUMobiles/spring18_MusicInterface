@@ -1,6 +1,7 @@
 {
 	"theme": [{
 			"name": "earth",
+			"sendCode": "a",
 			"colors": [
 				"#f9ddc7",
 				"#e2cab7",
@@ -23,6 +24,7 @@
 		},
 		{
 			"name": "water",
+			"sendCode": "s",
 			"colors": [
         "#64b8df",
 				"#90a4c2",
@@ -45,6 +47,7 @@
 		},
 		{
 			"name": "fire",
+			"sendCode": "d",
 			"colors": [
 				"#a97c50",
         "#4b3513",
@@ -67,6 +70,7 @@
 		},
 		{
 			"name": "air",
+			"sendCode": "f",
 			"colors": [
 				"#c6d3e4",
         "#64b8df",

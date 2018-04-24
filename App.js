@@ -20,25 +20,25 @@ export default class App extends React.Component {
     this.updateChildTheme = this.updateChildTheme.bind(this)
 
     // need to use the IPv4 address from ipconfig
-    var ws = new WebSocket('ws://10.152.53.8:8050/message');
+    this.ws = new WebSocket('ws://10.152.28.122:8050/update');
 
-    ws.onopen = () => {
+    this.ws.onopen = () => {
       // connection opened
       console.log('On open: connected');
-      ws.send('random crap'); // send a message
+      this.ws.send('random crap'); // send a message
     };
 
-    ws.onmessage = (e) => {
+    this.ws.onmessage = (e) => {
       // a message was received
       console.log('On message: ' + e.data);
     };
 
-    ws.onerror = (e) => {
+    this.ws.onerror = (e) => {
       // an error occurred
       console.log("On error: " + e.message);
     };
 
-    ws.onclose = (e) => {
+    this.ws.onclose = (e) => {
       // connection closed
       console.log("On close: " + e.code, e.reason);
     };
@@ -67,6 +67,7 @@ export default class App extends React.Component {
   updateChildTheme(choice) {
     console.log('changed pie')
     this.setState({selected: choice});
+    this.ws.send(this.state.theme[choice].sendCode);
   }
 
   allUsers() {
