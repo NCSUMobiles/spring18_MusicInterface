@@ -82,7 +82,9 @@ export default class App extends React.Component {
 
     if (this.state.preferredIndex != -1) {
       var otherIndex = arr.indexOf(this.state.preferredColor);
-      arr[otherIndex] = arr[this.state.preferredIndex];
+      if (otherIndex != -1) {
+        arr[otherIndex] = arr[this.state.preferredIndex];
+      }
       arr[this.state.preferredIndex] = this.state.preferredColor;
     }
 
