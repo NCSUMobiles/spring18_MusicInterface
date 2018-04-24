@@ -92,12 +92,14 @@
 			"row": [{
 					"title": "square1",
 					"category": "img1",
-					"flexSize": 2
+					"flexSize": 2,
+					"id": 0
 				},
 				{
 					"title": "square2",
 					"category": "img2",
-					"flexSize": 1
+					"flexSize": 1,
+					"id": 1
 				}
 			]
 		},
@@ -105,17 +107,20 @@
 			"row": [{
 					"title": "square3",
 					"category": "img3",
-					"flexSize": 1
+					"flexSize": 1,
+					"id": 2
 				},
 				{
 					"title": "square4",
 					"category": "img4",
-					"flexSize": 1
+					"flexSize": 1,
+					"id": 3
 				},
 				{
 					"title": "square5",
 					"category": "img5",
-					"flexSize": 1
+					"flexSize": 1,
+					"id": 4
 				}
 			]
 		},
@@ -123,17 +128,20 @@
 			"row": [{
 					"title": "square1",
 					"category": "img1",
-					"flexSize": 1
+					"flexSize": 1,
+					"id": 5
 				},
 				{
 					"title": "square2",
 					"category": "img2",
-					"flexSize": 2
+					"flexSize": 2,
+					"id": 6
 				},
 				{
 					"title": "square2",
 					"category": "img2",
-					"flexSize": 2
+					"flexSize": 2,
+					"id": 7
 				}
 			]
 		}

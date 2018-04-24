@@ -12,7 +12,8 @@ export default class UserRow extends React.Component {
           key={i}
           data={row}
           backgroundColor={this.props.colors[i]}
-          blobColors={this.props.blobColors}/>
+          blobColors={this.props.blobColors}
+          updateBlobColor={this.props.updateBlobColor}/>
       )
     })
   }
