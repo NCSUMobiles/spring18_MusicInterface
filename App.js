@@ -4,7 +4,7 @@ import { Card, ListItem, Button } from 'react-native-elements';
 import UserRow from './components/UserRow';
 import ThemeCard from './components/ThemeCard'
 import data from './data.json'
-import { NetworkInfo } from 'react-native-network-info';
+//import { NetworkInfo } from 'react-native-network-info';
 
 var WebSocket = require('WebSocket')
 
@@ -14,10 +14,13 @@ export default class App extends React.Component {
     this.state = {
       selected: 0,
       users: data.blobs,
-      theme: data.theme
+      theme: data.theme,
+      preferredIndex: -1,
+      preferredColor: -1
     }
     // allow children to use this function by naming in constructor
-    this.updateChildTheme = this.updateChildTheme.bind(this)
+    this.updateChildTheme = this.updateChildTheme.bind(this);
+    this.updateBlobColor = this.updateBlobColor.bind(this);
 
     // need to use the IPv4 address from ipconfig
     this.ws = new WebSocket('ws://10.152.28.122:8050/update');
@@ -65,14 +68,27 @@ export default class App extends React.Component {
 
   // Updates the themes when clicking a wheel
   updateChildTheme(choice) {
-    console.log('changed pie')
+    //console.log('changed pie')
     this.setState({selected: choice});
     this.ws.send(this.state.theme[choice].sendCode);
   }
 
+  updateBlobColor(index, color) {
+    this.setState({preferredIndex: index, preferredColor: color});
+  }
+
   allUsers() {
     // shuffle an array to help with assigning random colors in beginning
-    arr = this.fisher_yates_shuffle([0,1,2,3,4,5,6,7])
+    arr = this.fisher_yates_shuffle([0,1,2,3,4,5,6,7]);
+
+    if (this.state.preferredIndex != -1) {
+      var otherIndex = arr.indexOf(this.state.preferredColor);
+      if (otherIndex != -1) {
+        arr[otherIndex] = arr[this.state.preferredIndex];
+      }
+      arr[this.state.preferredIndex] = this.state.preferredColor;
+    }
+
     //How far youve gotten in array, used for assigning random colors
     arrIndex = 0;
     return this.state.users.map((row, i) => {
@@ -92,7 +108,8 @@ export default class App extends React.Component {
           key={i}
           data={row.row}
           colors={colors}
-          blobColors={this.state.theme[this.state.selected].blobColors} />
+          blobColors={this.state.theme[this.state.selected].blobColors}
+          updateBlobColor={this.updateBlobColor} />
       )
     })
   }
