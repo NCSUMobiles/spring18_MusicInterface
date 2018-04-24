@@ -4,6 +4,9 @@ import { Card, ListItem, Button } from 'react-native-elements';
 import UserRow from './components/UserRow';
 import ThemeCard from './components/ThemeCard'
 import data from './data.json'
+import { NetworkInfo } from 'react-native-network-info';
+
+var WebSocket = require('WebSocket')
 
 export default class App extends React.Component {
   constructor() {
@@ -15,6 +18,30 @@ export default class App extends React.Component {
     }
     // allow children to use this function by naming in constructor
     this.updateChildTheme = this.updateChildTheme.bind(this)
+
+    // need to use the IPv4 address from ipconfig
+    var ws = new WebSocket('ws://10.152.53.8:8050/message');
+
+    ws.onopen = () => {
+      // connection opened
+      console.log('On open: connected');
+      ws.send('random crap'); // send a message
+    };
+
+    ws.onmessage = (e) => {
+      // a message was received
+      console.log('On message: ' + e.data);
+    };
+
+    ws.onerror = (e) => {
+      // an error occurred
+      console.log("On error: " + e.message);
+    };
+
+    ws.onclose = (e) => {
+      // connection closed
+      console.log("On close: " + e.code, e.reason);
+    };
   }
 
   componentWillMount() {
