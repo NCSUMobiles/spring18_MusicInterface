@@ -11,7 +11,7 @@ export default class ThemeCard extends React.Component {
   };
 
   onButtonPress() {
-    console.log("Pressed");
+    //console.log("Pressed");
     this.setState({collapsed: !this.state.collapsed});
   }
 

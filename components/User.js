@@ -11,7 +11,7 @@ export default class User extends React.Component {
 
   onButtonPress() {
     this.setState({collapsed: !this.state.collapsed});
-    console.log(this.props);
+    //console.log(this.props);
   }
 
   onChangeColor(index) {
@@ -32,7 +32,7 @@ export default class User extends React.Component {
   }
 
   render() {
-    console.log(this.props.background)
+    //console.log(this.props.background)
     return (
       <View style={{flex: this.props.data.flexSize, flexDirection: 'column' }}>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)}>

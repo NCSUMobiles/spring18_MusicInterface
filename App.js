@@ -4,7 +4,7 @@ import { Card, ListItem, Button } from 'react-native-elements';
 import UserRow from './components/UserRow';
 import ThemeCard from './components/ThemeCard'
 import data from './data.json'
-import { NetworkInfo } from 'react-native-network-info';
+//import { NetworkInfo } from 'react-native-network-info';
 
 var WebSocket = require('WebSocket')
 
@@ -68,7 +68,7 @@ export default class App extends React.Component {
 
   // Updates the themes when clicking a wheel
   updateChildTheme(choice) {
-    console.log('changed pie')
+    //console.log('changed pie')
     this.setState({selected: choice});
   }
 
