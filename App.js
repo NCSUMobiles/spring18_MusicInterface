@@ -23,12 +23,12 @@ export default class App extends React.Component {
     this.updateBlobColor = this.updateBlobColor.bind(this);
 
     // need to use the IPv4 address from ipconfig
-    this.ws = new WebSocket('ws://10.152.28.122:8050/update');
+    this.ws = new WebSocket('ws://10.152.26.12:8050/update');
 
     this.ws.onopen = () => {
       // connection opened
       console.log('On open: connected');
-      this.ws.send('random crap'); // send a message
+      //this.ws.send('random crap'); // send a message
     };
 
     this.ws.onmessage = (e) => {
@@ -70,7 +70,10 @@ export default class App extends React.Component {
   updateChildTheme(choice) {
     //console.log('changed pie')
     this.setState({selected: choice});
-    this.ws.send(this.state.theme[choice].sendCode);
+    this.ws.send(JSON.stringify({
+      "type": "theme",
+      "data": this.state.theme[choice].sendCode
+    }));
   }
 
   updateBlobColor(index, color) {
@@ -87,6 +90,15 @@ export default class App extends React.Component {
         arr[otherIndex] = arr[this.state.preferredIndex];
       }
       arr[this.state.preferredIndex] = this.state.preferredColor;
+    }
+
+    if (this.ws.readyState === this.ws.OPEN) {
+      this.ws.send(JSON.stringify({
+        "type": "blob",
+        "data": arr
+      }));
+    } else {
+      console.log("not connected");
     }
 
     //How far youve gotten in array, used for assigning random colors
