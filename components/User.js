@@ -32,9 +32,8 @@ export default class User extends React.Component {
   }
 
   render() {
-    //console.log(this.props.background)
     return (
-      <View style={{flex: this.props.data.flexSize, flexDirection: 'column' }}>
+      <View style={{flex: 1, flexDirection: 'column' }}>
         <TouchableOpacity onPress={this.onButtonPress.bind(this)}>
           <Card image={require('../images/person2.png')} imageProps={{resizeMode: 'contain'}} containerStyle={[styles.gridItem, {backgroundColor: this.props.backgroundColor, borderColor: this.props.backgroundColor}]}>
           </Card>

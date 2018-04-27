@@ -6,11 +6,11 @@ import User from './User';
 export default class UserRow extends React.Component {
   // returns a User component with the appropriate backgroundColor
   allBoxes() {
-    return this.props.data.map((row, i) => {
+    return this.props.data.map((user, i) => {
       return(
         <User
           key={i}
-          data={row}
+          data={user}
           backgroundColor={this.props.colors[i]}
           blobColors={this.props.blobColors}
           updateBlobColor={this.props.updateBlobColor}/>

@@ -15,6 +15,7 @@ export default class App extends React.Component {
       selected: 0,
       users: data.blobs,
       theme: data.theme,
+      data: [],
       preferredIndex: -1,
       preferredColor: -1
     }
@@ -23,17 +24,29 @@ export default class App extends React.Component {
     this.updateBlobColor = this.updateBlobColor.bind(this);
 
     // need to use the IPv4 address from ipconfig
-    this.ws = new WebSocket('ws://10.152.26.12:8050/update');
+    this.ws = new WebSocket('ws://10.137.128.110:8050/update');
 
     this.ws.onopen = () => {
       // connection opened
       console.log('On open: connected');
-      //this.ws.send('random crap'); // send a message
+      this.ws.send(JSON.stringify({
+        "type": "init"
+      })); // send init instigating message
     };
 
     this.ws.onmessage = (e) => {
       // a message was received
-      console.log('On message: ' + e.data);
+      response = JSON.parse(e.data);
+      switch(response.type) {
+        case "init":          // receive msg with init data
+          // set data to the response.data sorted by index
+          this.setState({"selected": response.selected});
+          this.setState({"data": response.data.sort(this.compare)});
+          console.log("state data: ", this.state.data);
+          break;
+        default:
+          console.log("recieved invalid message from processing");
+      }
     };
 
     this.ws.onerror = (e) => {
@@ -51,19 +64,13 @@ export default class App extends React.Component {
     StatusBar.setHidden(true);
   }
 
-  // very famous array sorting algorithm
-  fisher_yates_shuffle(array){
-    var m = array.length, t, i;
-    // While there remain elements to shuffle…
-    while (m) {
-      // Pick a remaining element…
-      i = Math.floor(Math.random() * m--);
-      // And swap it with the current element.
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
-    }
-    return array;
+  // Sorting algorithm
+  compare(a,b) {
+    if (a.index < b.index)
+      return -1;
+    if (a.index > b.index)
+      return 1;
+    return 0;
   }
 
   // Updates the themes when clicking a wheel
@@ -77,21 +84,10 @@ export default class App extends React.Component {
   }
 
   updateBlobColor(index, color) {
+    console.log("chosen color" + color);
     this.setState({preferredIndex: index, preferredColor: color});
-  }
-
-  allUsers() {
-    // shuffle an array to help with assigning random colors in beginning
-    arr = this.fisher_yates_shuffle([0,1,2,3,4,5,6,7]);
-
-    if (this.state.preferredIndex != -1) {
-      var otherIndex = arr.indexOf(this.state.preferredColor);
-      if (otherIndex != -1) {
-        arr[otherIndex] = arr[this.state.preferredIndex];
-      }
-      arr[this.state.preferredIndex] = this.state.preferredColor;
-    }
-
+    /**
+      * sending the colors to processing
     if (this.ws.readyState === this.ws.OPEN) {
       this.ws.send(JSON.stringify({
         "type": "blob",
@@ -100,29 +96,45 @@ export default class App extends React.Component {
     } else {
       console.log("not connected");
     }
+    */
+  }
 
-    //How far youve gotten in array, used for assigning random colors
-    arrIndex = 0;
-    return this.state.users.map((row, i) => {
-      // number of ppl in row
-      len = row.row.length;
-      // slice the array to obtain only numbers for this row
-      choices = arr.slice(arrIndex, arrIndex + len);
-      // make color pattern for UserRow
-      colors = [];
-      choices.map((c) => {
-        colors.push(this.state.theme[this.state.selected].blobColors[c])
-      })
-      // increment arr index
-      arrIndex += len;
-      return(
-        <UserRow
-          key={i}
-          data={row.row}
-          colors={colors}
-          blobColors={this.state.theme[this.state.selected].blobColors}
-          updateBlobColor={this.updateBlobColor} />
-      )
+  allUsers() {
+    /**
+     * changing your color
+    if (this.state.preferredIndex != -1) {
+      var otherIndex = arr.indexOf(this.state.preferredColor);
+      if (otherIndex != -1) {
+        arr[otherIndex] = arr[this.state.preferredIndex];
+      }
+      arr[this.state.preferredIndex] = this.state.preferredColor;
+    }
+    */
+
+    len = this.state.data.length;
+    rowData = []
+    colors = [];
+    return this.state.data.map((data, i) => {
+      rowData.push(data)
+      colors.push(this.state.theme[this.state.selected].blobColors[data.colorId])
+
+      if ((i != 0 && i%2 == 0) || i == len - 1) {
+        console.log("i: " + i);
+        console.log("row data: ", rowData);
+        console.log("colors: ", colors);
+        tempData = JSON.parse(JSON.stringify(rowData))
+        tempColors = JSON.parse(JSON.stringify(colors))
+        rowData = []
+        colors = []
+        return(
+          <UserRow
+            key={i}
+            data={tempData}
+            colors={tempColors}
+            blobColors={this.state.theme[this.state.selected].blobColors}
+            updateBlobColor={this.updateBlobColor} />
+        )
+      }
     })
   }
 
@@ -143,7 +155,7 @@ export default class App extends React.Component {
           themes={this.state.theme}
           selected={this.state.selected}
           updateTheme={this.updateChildTheme} />
-        {this.allUsers()}
+          {this.allUsers()}
       </ScrollView>
     )
   }
