@@ -1,0 +1,123 @@
+{
+	"theme": [{
+			"name": "earth",
+			"sendCode": "a",
+			"colors": [
+				"#f9ddc7",
+				"#e2cab7",
+				"#dbc3af",
+				"#d1b9a5",
+				"#c4ac99",
+				"#c4a893"
+			],
+			"blobColors": [
+				"#e88f71",
+				"#edbb7b",
+				"#d6cb82",
+				"#9fad66",
+				"#96b592",
+				"#82918b",
+				"#8d818e",
+				"#a88a97"
+			],
+			"assignedShape": null
+		},
+		{
+			"name": "water",
+			"sendCode": "s",
+			"colors": [
+        "#64b8df",
+				"#90a4c2",
+				"#9bc3cb",
+				"#b4cde3",
+				"#009cbb",
+				"#00a79d"
+			],
+			"blobColors": [
+				"#fed9b5",
+				"#c3c0ac",
+				"#f4b7a4",
+				"#b2cbad",
+				"#c9c0cc",
+				"#e3d1d3",
+				"#cde3eb",
+				"#e5eebf"
+			],
+			"assignedShape": null
+		},
+		{
+			"name": "fire",
+			"sendCode": "d",
+			"colors": [
+				"#a97c50",
+        "#4b3513",
+				"#726658",
+				"#c2b59b",
+				"#58596b",
+				"#9b8579"
+			],
+			"blobColors": [
+				"#861619",
+				"#ff9120",
+				"#fec70b",
+				"#e88c4f",
+				"#ffc63f",
+				"#e06226",
+				"#a61e22",
+				"#f05234"
+			],
+			"assignedShape": null
+		},
+		{
+			"name": "air",
+			"sendCode": "f",
+			"colors": [
+				"#c6d3e4",
+        "#64b8df",
+				"#aab4c0",
+				"#e4dde6",
+				"#bbcaae",
+				"#b7d1cd"
+			],
+			"blobColors": [
+				"#f5de6a",
+				"#b7c045",
+				"#fbb278",
+				"#afa1ac",
+				"#7c9c6e",
+				"#93ba63",
+				"#f4ae98",
+				"#d0df61"
+			],
+			"assignedShape": null
+		}
+	],
+	"blobs": [{
+			"row": [{
+					"id": 0
+				},
+				{
+					"id": 1
+				}
+			]
+		},
+		{
+			"row": [{
+					"id": 2
+				},
+				{
+					"id": 3
+				}
+			]
+		},
+		{
+			"row": [{
+					"id": 5
+				},
+				{
+					"id": 6
+				}
+			]
+		}
+	]
+}
