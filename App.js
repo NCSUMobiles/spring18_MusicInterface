@@ -24,7 +24,7 @@ export default class App extends React.Component {
     this.updateBlobColor = this.updateBlobColor.bind(this);
 
     // need to use the IPv4 address from ipconfig
-    this.ws = new WebSocket('ws://10.137.128.110:8050/update');
+    this.ws = new WebSocket('ws://10.154.47.68:8050/update');
 
     this.ws.onopen = () => {
       // connection opened
@@ -40,9 +40,22 @@ export default class App extends React.Component {
       switch(response.type) {
         case "init":          // receive msg with init data
           // set data to the response.data sorted by index
-          this.setState({"selected": response.selected});
-          this.setState({"data": response.data.sort(this.compare)});
-          console.log("state data: ", this.state.data);
+          this.setState({selected: response.selected});
+          this.setState({data: response.data.sort(this.compare)});
+          //console.log("state data: ", this.state.data);
+          break;
+        case "add":
+          //console.log("add blob: ", response.data.index, " ", response.data.colorId);
+          this.setState({data: [...this.state.data, response.data]});
+          break;
+        case "remove":
+          //console.log("remove blob: ", response.index);
+          var array = [...this.state.data];
+          array.splice(response.index, 1);
+          for (var i = response.index; i < array.length; i++) {
+            array[i].index--;
+          }
+          this.setState({data: array});
           break;
         default:
           console.log("recieved invalid message from processing");
@@ -85,18 +98,32 @@ export default class App extends React.Component {
 
   updateBlobColor(index, color) {
     console.log("chosen color" + color);
-    this.setState({preferredIndex: index, preferredColor: color});
-    /**
-      * sending the colors to processing
-    if (this.ws.readyState === this.ws.OPEN) {
+    console.log(this.state.data);
+    console.log(index);
+    var arr = this.state.data;
+
+    user = arr.find(x => x.colorId === color);
+
+    if (user === undefined) {
+      arr[index].colorId = color;
+    } else {
+      arr[user.index].colorId = arr[index].colorId;
+      arr[index].colorId = color;
+    }
+
+    this.setState({data: arr});
+
+    //if (this.ws.readyState === this.ws.OPEN) {
       this.ws.send(JSON.stringify({
         "type": "blob",
-        "data": arr
+        "data": {
+          "index": index,
+          "color": color
+        }
       }));
-    } else {
-      console.log("not connected");
-    }
-    */
+    //} else {
+      //console.log("not connected");
+    //}
   }
 
   allUsers() {
@@ -112,20 +139,20 @@ export default class App extends React.Component {
     */
 
     len = this.state.data.length;
-    rowData = []
+    rowData = [];
     colors = [];
     return this.state.data.map((data, i) => {
-      rowData.push(data)
-      colors.push(this.state.theme[this.state.selected].blobColors[data.colorId])
+      rowData.push(data);
+      colors.push(this.state.theme[this.state.selected].blobColors[data.colorId]);
 
-      if ((i != 0 && i%2 == 0) || i == len - 1) {
-        console.log("i: " + i);
-        console.log("row data: ", rowData);
-        console.log("colors: ", colors);
-        tempData = JSON.parse(JSON.stringify(rowData))
-        tempColors = JSON.parse(JSON.stringify(colors))
-        rowData = []
-        colors = []
+      if ((i % 2 == 1) || i == len - 1) {
+        //console.log("i: " + i);
+        //console.log("row data: ", rowData);
+        //console.log("colors: ", colors);
+        tempData = JSON.parse(JSON.stringify(rowData));
+        tempColors = JSON.parse(JSON.stringify(colors));
+        rowData = [];
+        colors = [];
         return(
           <UserRow
             key={i}
@@ -155,7 +182,7 @@ export default class App extends React.Component {
           themes={this.state.theme}
           selected={this.state.selected}
           updateTheme={this.updateChildTheme} />
-          {this.allUsers()}
+        {this.allUsers()}
       </ScrollView>
     )
   }

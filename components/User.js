@@ -15,7 +15,7 @@ export default class User extends React.Component {
   }
 
   onChangeColor(index) {
-    this.props.updateBlobColor(this.props.data.id, index);
+    this.props.updateBlobColor(this.props.data.index, index);
   }
 
   allColors() {
