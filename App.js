@@ -24,7 +24,7 @@ export default class App extends React.Component {
     this.updateBlobColor = this.updateBlobColor.bind(this);
 
     // need to use the IPv4 address from ipconfig
-    this.ws = new WebSocket('ws://10.154.47.68:8050/update');
+    this.ws = new WebSocket('ws://10.153.45.25:8050/update');
 
     this.ws.onopen = () => {
       // connection opened

@@ -11,8 +11,8 @@ export default class ThemePie extends React.Component {
     return (
       <View style={styles.gridItem}>
         <Pie
-          radius={Dimensions.get('window').width/4.5}
-          innerRadius={Dimensions.get('window').width/8}
+          radius={Dimensions.get('window').width/6}
+          innerRadius={Dimensions.get('window').width/10}
           series={[this.sliceVal, this.sliceVal, this.sliceVal, this.sliceVal, this.sliceVal, this.sliceVal]}
           colors={this.props.theme.colors} />
       </View>
