@@ -8,7 +8,7 @@ The following artifacts can be found in the Deliverables folder:
 * A video demo of the application
 
 ## Video Demo
-A video demo of the application can be found [here](TODO: - put link here).
+A video demo of the application can be found [here](https://m.youtube.com/watch?v=BzfCrF2msBk&feature=youtu.be).
 
 ## Problem
 Design students in NC State’s ADN 460 course have developed an AV Instrument called Elemental in which users’ motions are tracked and influence visual and audio responses in a designated space. They have created four different themes (earth, water, fire, air) for the AV Instrument. Without an external interface, Elemental’s themes and user settings can only be altered by the computer on which it is running. In order to make Elemental more engaging for users, we developed a mobile application which allows individual users to customize their blob color and switch between the available themes. 
