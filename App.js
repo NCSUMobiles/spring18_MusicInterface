@@ -4,7 +4,6 @@ import { Card, ListItem, Button } from 'react-native-elements';
 import UserRow from './components/UserRow';
 import ThemeCard from './components/ThemeCard'
 import data from './data.json'
-//import { NetworkInfo } from 'react-native-network-info';
 
 var WebSocket = require('WebSocket')
 
@@ -23,7 +22,9 @@ export default class App extends React.Component {
     this.updateChildTheme = this.updateChildTheme.bind(this);
     this.updateBlobColor = this.updateBlobColor.bind(this);
 
-    // need to use the IPv4 address from ipconfig
+    // Port: 8050
+    // IP address: IP_v4 address of the computer running the Processing
+    // code executable (AV_Instrument_Global_Mode_Switch.pde line 63)
     this.ws = new WebSocket('ws://10.153.45.25:8050/update');
 
     this.ws.onopen = () => {
