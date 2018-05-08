@@ -1,7 +1,5 @@
 ﻿# Documentation for Music Interface
 
-This repository contains the code for 
-
 ## Artifacts
 The following artifacts can be found in the Deliverables folder:
 * Sketches of initial designs and wireframes
@@ -10,7 +8,7 @@ The following artifacts can be found in the Deliverables folder:
 * A video demo of the application
 
 ## Instructions on how to use Elemental
-Note: The Processing and React Native codes utilize port 8050. If your computer is using 8050 for a different functionality, then be sure to change the port number to an available port (AV_Instrument_Global_Mode_Switch.pde:line 63 and App.js:line 28).
+Note: The Processing and React Native codes utilize port 8050. If your computer is using 8050 for a different functionality, then the port number should be changed to an available port (AV_Instrument_Global_Mode_Switch.pde:line 63 and App.js:line 28).
 
 * The executable file for the Processing code can be found in the folder: Processing -> AV_Instrument_Global_Mode_Switch -> application.64 (or application .32) -> AV_Instrument_Global_Mode_Switch.exe
 * Since the App.js file (for React Native) requires the IPv4 address of the computer on which the Processing executable is being run, to use the mobile interface currently, the IP address coded in App.js:line 28 needs to be changed to reflect the correct IP address. For this reason, a .apk file cannot be compiled and run unless it's recompiled after each IP address change. To run the app, we used [Expo](https://facebook.github.io/react-native/docs/getting-started.html).
